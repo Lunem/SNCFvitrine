@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<title>Les produits</title>
+	<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+</head>
+
+<body ng-app="myApp"  ng-controller="myCtrl">
+	<a id="haut"></a>
+
+
+	<!-- NAV -->
+
+	<nav id="menu">
+		<ul>
+			<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+			<li><i class="fa fa-search" aria-hidden="true"></i>
+			<input id='search' type="text" placeholder="Recherche..." ng-model="searchStartup"></li>
+			<li><a href="start_up.html">Start'up</a></li>
+			<li><a href="produits.html">Produits</a></li>
+			<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+				<ul id='essai'>
+					<li><a href="connexionPro.html">Professionnel</a></li>
+					<li><a href="connexion.html">Particulier</a></li>
+				</ul>
+			</li>
+			<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+			<li id="cercleChiffrePanier">{{count}}</li>
+		</ul>
+	</nav>
+	<!-- NAV -->
+
+<!-- banniere -->
+	<!-- <div id="banniere_haute">
+		<img src="image/tech.jpg" alt="">
+		<div id= "ligne_blanche_titre">
+			<h3>Les meilleurs produits Tech <em> made in France</em></h3>
+		</div>
+	</div> -->
+
+
+	<div class="header-homepage">
+			<h3>Les produits</h3>
+	</div>
+
+<!-- banniere -->
+
+<div id="logoMenuCategory" ng-click="active = !active">
+	<span id='burger' class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="font-size: 30px;top: -314px;"></span>
+</div>
+<!-- ___MENU FIXE ___-->
+<div id="containerCategory">
+	<div class="category" ng-show="active">
+		<h4>TOUS NOS RAYONS</h4>
+		<ul>
+			<li><a href="#">Papeterie</a></li>
+			<li><a href="#">Musique</a></li>
+			<li><a href="#">Jeux vidéo</a></li>
+			<li><a href="#">Enfants</a></li>
+			<li><a href="#">Sport, Loisirs</a></li>
+			<li><a href="#">Santé</a></li>
+			<li><a href="#">Informatique</a></li>
+			<li><a href="#">Tablettes</a></li>
+			<li><a href="#">Smartphones</a></li>
+			<li><a href="#">Objets connectés</a></li>
+			<li><a href="#">Photo, Caméras</a></li>
+			<li><a href="#">TV, Vidéo</a></li>
+			<li><a href="#">Maison</a></li>
+			<li><a href="#">Electroménager</a></li>
+			<li><a href="#">Bricolage</a></li>
+			<li><a href="#">Jardinage</a></li>
+			<li><a href="#">Beauté, Forme</a></li>
+			<li><a href="#">Cuisine</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- ___FIN MENU FIXE ___-->
+
+
+
+	<div id = "container_produits">
+		<div id="card_produit" ng-repeat="service in services | filter:searchStartup">
+
+			<div id="cardProduitDetail">
+
+				<div id="produit_photo">
+					<div id=logo>
+						<div class="bannerFinance"><img src="{{service.contribuer}}" alt="contribuez à financer le produit"></div>
+						<div class="bannerParticiper"><img src="{{service.financement}}" alt="Financement participatif"></div>
+					</div>
+					<div id="produit_image">
+						<img src="{{service.produit}}" alt="photo produit">
+					</div>
+				</div>
+					<div id="produit_nom">
+						<h3>{{service.title}}</h3>
+						<div id=cercleslider>
+							<div class="cercle_produit_slider"></div>
+							<div class="cercle_produit_slider" style="background-color: #E6A000"></div>
+							<div class="cercle_produit_slider"></div>
+							<div class="cercle_produit_slider"></div>
+							<div class="cercle_produit_slider"></div>
+						</div>
+				</div>
+				<div id="text_produit">
+					<p>{{service.text_produit}}</p>
+				</div>
+
+				<div id="button_fiche_produit">
+					<div class="byImage">
+						<p>par</p>
+						<img src="{{service.image}}" alt="" value="by">
+					</div>
+					<button>Ajouter au panier<i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+
+					<!-- <a href="" ng-click="detail_produit()">+ d'infos</a> -->
+				</div>
+			</div>
+		</div>
+
+			<!-- <div id="card_bas">
+					<div id="text_start">
+						<p>{{service.texte}}</p>
+						<a href="{{service.url}}" target=_blank>{{service.url}}</a>
+					</div>
+					<div id="img_produit">
+						<img src="{{service.produit}}" alt="Notre produit">
+					</div>
+			</div> -->
+	</div>
+
+
+
+	<!-- MODAL produit -->
+	<div id="containerProduitsModal" ng-show="modal_box_produit">
+		<div id="photo_gauche">
+			<img src="image/sevenhugs.jpg" alt="">
+		</div>
+		<div id="text_droit">
+			<img src="image/10vin.png" alt=""> <i class="fa fa-times" aria-hidden="true" ng-click="close_modal()"></i>
+			<h3>D.Vine</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<div id="buttonPrixAcheter">
+				<p>Prix : 699€</p>
+				<input id="button_click" type="button" value="acheter" ng-click="acheter()">
+			</div>
+		</div>
+
+	</div>
+	<!-- MODAL produit -->
+
+
+	<!-- FOOTER -->
+	<footer>
+		<ul>
+			<li><a href="">Société</a></li>
+			<li><a href="contact.html">Nous contacter</a></li>
+			<li><a href="nos_magasins.html">Nos magasins</a></li>
+			<li><a href="">Conditions générales et confidentialité</a></li>
+		</ul>
+		<ul>
+			<li><a href="">Découvrir</a></li>
+			<li><a href="">Confiance et sécurité</a></li>
+			<li><a href="">Application mobile</a></li>
+			<li><a href="">Plan du site</a></li>
+		</ul>
+		<div id="reseauxSociaux">
+			<p>Rejoignez-nous sur</p>
+			<ul>
+				<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- FOOTER -->
+
+
+	<!-- ANCRE -->
+	<a id="ancre" href="#haut">
+		<span class="fa-stack fa-lg">
+		<i class="fa fa-circle fa-stack-2x"></i>
+		<i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
+	</span></a>
+	<!-- ANCRE -->
+
+	<script src="js/app-celia.js"></script>
+	<script src="js/controlScop-celia.js"></script>
+</body>
+</html>

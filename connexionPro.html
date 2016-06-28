@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="myAppConnexion">
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<title>Espace Startup</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-1.png" />
+			<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+</head>
+<body>
+	<nav id="menu">
+		<ul>
+			<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+			<li><i class="fa fa-search" aria-hidden="true"></i>
+<input id='search' type="text" placeholder="Recherche..."></li>
+			<li><a href="start-up.html">Start'up</a></li>
+			<li><a href="produits.html">Produits</a></li>
+			<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+				<ul>
+					<li><a href="connexionPro.html">Professionnel</a></li>
+					<li><a href="connexion.html">Particulier</a></li>
+				</ul>
+			</li>
+			<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+			<li id="cercleChiffrePanier">2</li>
+		</ul>
+	</nav>
+	<div ng-controller="myCtrlConnexion">
+		<div id="containerConnexion" ng-show="acces">
+			<div id="utilisateur" style="border-right: 1px solid #d8d8d8;">
+				<h3>ON SE CONNAÎT DÉJÀ ?</h3>
+				<p>Connectez-vous pour retrouver vos avantages et les informations de votre compte.</p>
+				<p>E-mail*</p>
+				<input class="sizeInput" type="text" placeholder="votre adresse e-mail" ng-model="mail" required>
+				<p>Mot de passe*</p>
+				<input class="sizeInput" type="text" placeholder="votre mot de passe" ng-model="password" required>
+				<div class="button" ng-click="connecter()"><button>Me connecter</button></div>
+			</div>
+			<div id="newUtilisateur">
+				<h3>PREMIÈRE VISITE ?</h3>
+				<p>Bonjour cher inconnu, on ne se connaît pas encore. Aucun problème, continuez c’est tout droit.</p>
+				<div class="button"><button ng-click="newUs = !newUs">Créer mon compte</button></div>
+			</div>
+		</div>
+		<!-- _______ acces autorisé_________ -->
+
+		<div id="containerAcces" ng-show="!acces">
+			<div class="infoPerso">
+				<div id="checkbox">
+						<h4>MODIFIER VOS INFORMATIONS PERSONNELLES</h4>
+				</div>
+					<div class="infos">
+						<div>
+							<p>Nom de l'entreprise*:</p>
+							<input class="sizeInput" type="text" placeholder="Simplon">
+							<p>Numéro SIRET*:</p>
+							<input class="sizeInput" type="text" placeholder="numéro SIRET">
+							<p>Domaine*:</p>
+							<input class="sizeInput" type="text" placeholder="Nouvelles technologies">
+							<p>Adresse e-mail*:</p>
+							<input class="sizeInput" type="text" placeholder="votre adresse e-mail">
+							<p>Numéro de l'entreprise*:</p>
+							<input class="sizeInput" type="text" placeholder="00 00 00 00 00">
+						</div>
+						<div>
+							<p>Ville*:</p>
+							<input class="sizeInput" type="text" placeholder="ville">
+							<p>Code postal*:</p>
+							<input class="sizeInput" type="text" placeholder="ville">
+							<p>Pseudo*:</p>
+							<input class="sizeInput" type="text" placeholder="votre pseudo">
+							<p>Changer votre mot de passe*:</p>
+							<input class="sizeInput" type="text" placeholder="***********">
+							<p>Ajouter votre logo d'entreprise :</p><br>
+							<input type="file"><button>Télécharger</button>
+						</div>
+					</div>
+					<!-- <div class='button'><button>Valider</button></div> -->
+			</div>
+				<hr>
+				<!-- ______________ -->
+				<div id="lastShop">
+					<h4 style="text-align: left">MES DERNIÈRES COMMANDES</h4>
+					<div id="commandes">
+						<div class="blockCommande" style="width: 300px;">
+							<p><strong>Livraison</strong></p>
+							<input type="checkbox">
+							<div>
+								Madame Simplon <br>
+								33 rue de Vincennes<br>
+								93000 Montreuil <br>
+								06 00 00 00 00 <br>
+							</div>
+							<input type="checkbox">
+							<div>
+								Rentrer une nouvelle adresse <br>
+								de livraison
+							</div>
+						</div>
+						<div class="blockCommande" style="width: 400px;">
+							<p><strong>Produits</strong></p>
+							<div class="shop">
+								<img src="image/vitrine.png" alt="" style="width: 50px;">
+								<p>article bidule bidule </p>
+								<p>00.00€</p>
+							</div>
+							<div class="shop">
+								<img src="image/vitrine.png" alt="" style="width: 50px;">
+								<p>article bidule bidule </p>
+								<p>00.00€</p>
+							</div>
+						</div>
+						<div class='button'><button>Valider</button></div>
+					</div>
+				</div>
+				<hr>
+
+				<!-- ____________ -->
+				<div id="containerPaiement">
+					<h4 style="text-align: left">MES INFORMATIONS DE PAIEMENT</h4>
+					<div id="paiement">
+						<div class="infoCard">
+							<p>Nom du propriétaire*: </p>
+							<input class="sizeInput" type="text" placeholder="M. SIMPLON.CO">
+							<p>Numéro de la carte*: </p>
+							<input class="sizeInput" type="text" placeholder="******************0000">
+							<p>Numéro de la carte*: </p>
+							<input class="sizeInput" type="text" placeholder="00" style="width: 60px;"> / <input class="sizeInput" type="text" placeholder="00" style="width: 60px;">
+							<p>Vérification de la carte *: </p>
+							<input class="sizeInput" type="text" placeholder="0000">
+							<div class='button'><button>Valider</button></div>
+						</div>
+						<div class="infoCard">
+							<img src="image/paiement.jpg" alt="" style="width: 80%;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- _________________New utilisateur__________________ -->
+			<div id="containerNewUs" ng-show="newUs">
+				<div class="infoPerso">
+					<div id="checkbox">
+							<h4>ENTRER VOS INFORMATIONS PERSONNELLES</h4>
+							<p>Civilité*:</p>
+							<input type="checkbox">Mlle
+							<input type="checkbox">Mme
+							<input type="checkbox">M.
+					</div>
+						<div class="infos">
+							<div>
+								<p>Nom de l'entreprise*:</p>
+								<input class="sizeInput" type="text" placeholder="Simplon">
+								<p>Prénom*:</p>
+								<input class="sizeInput" type="text" placeholder="votre prénom">
+								<p>Votre adresse*:</p>
+								<input class="sizeInput" type="text" placeholder="votre adresse">
+								<p>Votre adresse e-mail*:</p>
+								<input class="sizeInput" type="text" placeholder="votre adresse e-mail">
+								<p>Votre date de naissance*:</p>
+								<input class="sizeInput" type="text" placeholder="votre adresse date de naissance">
+							</div>
+							<div>
+								<p>Nom*:</p>
+								<input class="sizeInput" type="text" placeholder="votre nom">
+								<p>Code postal*:</p>
+								<input class="sizeInput" type="text" placeholder="votre code postal">
+								<p>Pseudo*:</p>
+								<input class="sizeInput" type="text" placeholder="votre pseudo">
+								<p>Entrer votre mot de passe*:</p>
+								<input class="sizeInput" type="text" placeholder="***********">
+							</div>
+						</div>
+						<!-- <div class='button'><button>Valider</button></div> -->
+				</div>
+			</div>
+		</div>
+	<!-- ________________FOOTER____________________ -->
+	<footer>
+		<ul>
+			<li><a href="">Société</a></li>
+			<li><a href="contact.html">Nous contacter</a></li>
+			<li><a href="nos_magasins.html">Nos magasins</a></li>
+			<li><a href="">Conditions générales et confidentialité</a></li>
+		</ul>
+		<ul>
+			<li><a href="">Découvrir</a></li>
+			<li><a href="">Confiance et sécurité</a></li>
+			<li><a href="">Application mobile</a></li>
+			<li><a href="">Plan du site</a></li>
+		</ul>
+		<div id="reseauxSociaux">
+			<p>Rejoignez-nous sur</p>
+			<ul>
+				<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+<script src="js/appConnexionPro.js"></script>
+<script src="js/controlScopConnexionPro.js"></script>
+</body>
+</html>

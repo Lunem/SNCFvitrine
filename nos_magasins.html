@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="myApp">
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<title>Contact</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+</head>
+<body>
+	<nav id="menu">
+		<ul>
+			<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+			<li><i class="fa fa-search" aria-hidden="true"></i>
+			<input id='search' type="text" placeholder="Recherche..."></li>
+			<li><a href="start_up.html">Start'up</a></li>
+			<li><a href="produits.html">Produits</a></li>
+			<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+				<ul>
+					<li><a href="connexionPro.html">Professionnel</a></li>
+					<li><a href="connexion.html">Particulier</a></li>
+				</ul>
+			</li>
+			<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+			<li id="cercleChiffrePanier">2</li>
+		</ul>
+		</ul>
+	</nav>
+	<div>
+		<div id="containerMagasin" ng-controller="myCtrl">
+			<div id="searchMag">
+				<h3>Recherche d'un magasin</h3>
+        	<div class="magasin-inline">
+						<p>Sélectionnez votre produit:</p>
+							<select name="">
+								<option value="" ng-repeat="service in services">{{service.title}}</option>
+						</select>
+
+						<p>Ville</p>
+		        <input class="input-ville" placeholder="votre ville" type="text">
+						<p>Distance en km : </p>
+			        <select name="">
+			          <option value="">01 km</option>
+								<option value="">05 km</option>
+								<option value="">10 km</option>
+								<option value="">15 km</option>
+								<option value="">20 km</option>
+								<option value="">30 km</option>
+								<option value="">50 km</option>
+			        </select>
+							<input class="button-magasin" type="submit" value="Rechercher">
+						</div>
+				</div>
+
+					<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:700px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									google maps carte							</a></small></div><div><small><a href="http://youtubeembedcode.com">embed youtube</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(48.856614,2.3522219000000177),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(48.856614,2.3522219000000177)});infowindow = new google.maps.InfoWindow({content:'<strong>Titre</strong><br>Paris, France<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+				</div>
+				<!-- ________________ -->
+
+
+	<!-- ________________FOOTER____________________ -->
+	<footer>
+		<ul>
+			<li><a href="">Société</a></li>
+			<li><a href="contact.html">Nous contacter</a></li>
+			<li><a href="nos_magasins.html">Nos magasins</a></li>
+			<li><a href="">Conditions générales et confidentialité</a></li>
+		</ul>
+		<ul>
+			<li><a href="">Découvrir</a></li>
+			<li><a href="">Confiance et sécurité</a></li>
+			<li><a href="">Application mobile</a></li>
+			<li><a href="">Plan du site</a></li>
+		</ul>
+		<div id="reseauxSociaux">
+			<p>Rejoignez-nous sur</p>
+			<ul>
+				<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+	<script src="js/app-celia.js"></script>
+	<script src="js/controlScop-celia.js"></script>
+	<script src="js/appConnexion.js"></script>
+	<script src="js/controlScopConnexion.js"></script>
+	<script src="js/controlScopConnexion.js"></script>
+</body>
+</html>

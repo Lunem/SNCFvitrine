@@ -1,0 +1,623 @@
+/*_____________PARTIE DE CAMILLE*/
+
+body {
+	background-color: #DBE0DE;
+	font-family: sans-serif;
+}
+
+#menu ul {
+	width: 100%;
+	height: 50px;
+	background-color: #008c9e;
+	text-align: right;
+	/*border-bottom: 1px solid;*/
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+
+#menu li:first-child {
+	float: left;
+}
+
+#menu li img {
+	width: 40px;
+}
+
+#menu ul li {
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+#menu ul li a {
+	outline-style:none;
+}
+
+#menu ul li ul{
+	display: none;
+}
+
+#menu ul li:hover ul {
+	display: block;
+	padding-left: 0px;
+	margin-left: 0px;
+	position: absolute;
+	width:120px;
+	height: 90px;
+	top: 50px;
+	right: 120px;
+	text-align: left;
+	z-index: 10;
+}
+#menu ul li:hover ul li {
+	margin-bottom: 10px;
+}
+#search {
+	border-radius:20px;
+	padding-left: 10px;
+}
+
+#menu a {
+	list-style: none;
+	color: white;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	list-style: none;
+	color: white;
+	text-decoration: none;
+	border-bottom: 2px solid white;
+	padding-bottom: 15px;
+}
+
+#menu a:first-child:hover {
+	border-bottom: none;
+}
+
+i {
+	margin: 5px;
+	color: white;
+}
+
+
+footer {
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+footer ul {
+	display: inline-block;
+	list-style: none;
+	text-align: left;
+	padding: 30px;
+}
+
+footer li:first-child {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+footer a {
+	color: black;
+}
+
+#reseauxSociaux {
+	width: 80%;
+	text-align: center;
+	margin: auto;
+	padding-top: 40px;
+	border-top: 1px solid #008c9e;
+}
+
+#reseauxSociaux li {
+	display: inline-block;
+	margin: 10px;
+}
+
+#reseauxSociaux p {
+	font-weight: bold;
+}
+
+#reseauxSociaux i {
+	font-size: 30px;
+	color: #008c9e;
+}
+
+
+/*______________PAGE CONNEXION_____________*/
+
+#containerConnexion {
+	width: 100%;
+	height: 60vh;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+#utilisateur, #newUtilisateur {
+	height: 300px;
+	width: 500px;
+	padding: 30px;
+}
+
+.button button {
+	margin: 20px 0;
+	border-radius:0%;
+	padding: 10px;
+	width: 160px;
+	background-color: #19dcd5;
+	color: white;
+}
+
+.sizeInput {
+	width: 250px;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+p {
+	margin: 0px;
+}
+
+/*____Acces validé*/
+
+#containerAcces, #containerNewUs {
+	width: 80%;
+	margin: auto;
+	background-color: white;
+	padding: 20px;
+}
+
+.infos {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.infoPerso {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+#checkbox {
+	width: 80%;
+	text-align: left;
+	padding-bottom: 10px;
+}
+
+#lastShop, #containerPaiement {
+	width: 80%;
+	margin: auto;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.blockCommande {
+	/*width: 300px;*/
+	height: auto;
+	border: 1px solid #d8d8d8;
+}
+
+#commandes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.shop {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	padding: 10px;
+}
+
+#paiement {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.infoCard {
+	text-align: left;
+}
+
+
+/*_____________PARTIE DE CECILE*/
+
+
+/* DEBUT ancre */
+#boutonAncre {
+	position: fixed;
+  right:20px;
+  bottom:20px;
+	z-index: 1000;
+}
+#boutonAncre .fa-circle {
+	color: #008C9E;
+}
+/* FIN ancre */
+
+/* ------------------------------------ *\
+			HEADER
+\* ------------------------------------ */
+
+	.header-homepage {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		position: relative;
+		width: 100%;
+		height: 324px;
+		/*background: url('../image/image_home.jpg') center/100% no-repeat;*/
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../image/image_home.jpg);
+	}
+	.header-homepage img {
+			width: 1000px;
+			align-self: center;
+	}
+	.bg-white {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+	}
+
+
+	/* ------------------------------------ *\
+				PRODUITS FAV
+	\* ------------------------------------ */
+
+	/* Largeur générale appliquée à chaque élément */
+	.width-card-fav {
+	  width: 300px;
+	}
+
+	.position-elem {
+		position: absolute;
+	}
+	.position-elem a {
+		text-decoration: none;
+	}
+	.tx-white {
+		color: #ffffff;
+	}
+
+
+
+
+	#txAccueil {
+		font-size: 40px;
+		text-align: center;
+		padding-bottom: 50px;
+		background: #DBE0DE;
+	}
+
+
+	/* Titre Section Favoris */
+	.titres-section-fav {
+		top: 45%;
+		/*height: auto;*/
+		display: block;
+		width: 900px;
+		height: auto;
+		margin: 0 auto;
+		}
+
+		.color-section-acheter {
+			border: 1px solid #e3a217; /*#99BFC4*/
+			background-color: #e3a217;
+		}
+
+		.color-section-ameliorer {
+			border: 1px solid #e95e4b; /*#669FA6*/
+			background-color: #e95e4b;
+		}
+
+		.color-section-financer {
+			border: 1px solid #008C9E;
+			background-color: #008C9E;
+		}
+
+		.icone {
+			margin: 0 auto;
+			width: 50px;
+			height: 50px;
+		}
+
+			.icone-acheter {
+				width: 35px;
+				height: auto;
+				text-align: center;
+			}
+
+			.icone-ameliorer {
+				background: url('../image/icone-bulb.png') no-repeat center;
+				background-size: 80% 80%;
+			}
+
+			.icone-financer {
+				background: url('../image/icon-home.png') no-repeat center;
+				background-size: 80% 80%;
+			}
+
+
+	.container-titre-selection {
+		/*border-top: 1px solid #CECECE;*/
+		border-radius: 5px;
+	}
+	.container-titre-selection h3 {
+		margin-top: 35px;
+	}
+	.titre-selection {
+		margin-bottom: 30px;
+	}
+
+
+	#containerProduits {
+		width: auto;
+		height: auto;
+		margin: 50px 0 0 0;
+		background-color: #FFFFFF;
+	}
+
+	.container-cards-produits-haut {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		margin-bottom: 20px;
+		padding-bottom: 30px;
+		/*border-bottom: 1px solid #bababa;*/
+	}
+
+		.container-cards-produits-haut > .card-fav {
+			border-bottom: 10px solid #e3a217; /* Produits à acheter */
+		}
+
+	.container-cards-produits-milieu {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		margin-bottom: 20px;
+		padding-bottom: 30px;
+		/*border-bottom: 1px solid #bababa;*/
+	}
+
+		.container-cards-produits-milieu > .card-fav {
+			border-bottom: 10px solid #e95e4b; /* Produits à améliorer */
+		}
+
+	.container-cards-produits-bas {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		margin-bottom: 20px;
+		padding-bottom: 50px;
+	}
+
+		.container-cards-produits-bas > .card-fav {
+			border-bottom: 10px solid #008C9E; /* Produits à financer */
+		}
+
+
+		/* Container de la Card */
+		.card-fav {
+			position: relative;
+			height: auto;
+		}
+
+		.card-fav:hover .btn-card-fav-produit {
+			opacity: 1;
+		}
+
+		.card-fav:hover .dark-overlay-acheter{
+			opacity: 1;
+		}
+		.card-fav:hover .dark-overlay-ameliorer {
+			opacity: 1;
+		}
+		.card-fav:hover .dark-overlay-financer {
+			opacity: 1;
+		}
+		/* Image de la Card */
+		.pic-produit-fav {
+			height: 300px;
+		}
+
+		/* Div contenant le fond transparent noir*/
+		.dark-overlay-acheter{
+			height: 300px;
+			background-color: rgba(227, 162, 23, 0.8);
+			transition: opacity .25s ease;
+			opacity: 0;
+			z-index: 9;
+		}
+		.dark-overlay-ameliorer {
+			height: 300px;
+			background-color: rgba(233, 94, 75, 0.8);
+			transition: opacity .25s ease;
+			opacity: 0;
+			z-index: 9;
+		}
+		.dark-overlay-financer {
+			height: 300px;
+			background-color: rgba(0, 140, 158, 0.8);
+			transition: opacity .25s ease;
+			opacity: 0;
+			z-index: 9;
+		}
+
+		/* Div contenant le bouton "Nom produit" */
+	  .btn-card-fav-produit {
+	    top: 45%;
+	    height: auto;
+			transition: opacity .25s ease;
+			opacity: 0;
+			z-index: 10;
+	  }
+
+			/* Input bouton "Nom produit" */
+			.btn-acheter-fav {
+				display: block;
+				height: 40px;
+				border: 1px solid #ffffff;
+				background-color: rgba(0, 0, 0, 0);
+				margin: 0 auto;
+				font-size: 18px;
+			}
+
+
+
+
+			.btn-card-fav-produit h5 {
+					margin-top: 50px;
+					margin-left: 30px;
+					color: white;
+					font-size: 16px;
+			}
+
+				.width-btn-fav {
+					width: 150px;
+				}
+
+				/* Balise p en-dessous du bouton "Nom Produit" */
+				.nom-startup {
+					font-size: 12pt;
+					margin-top: 10px;
+					font-style: italic;
+				}
+				.position-elem a {
+					outline-style:none;
+				}
+
+				/*____Contact*/
+
+
+			#containerContact {
+				width: 100%;
+				height: 80vh;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin-bottom: 80px;
+			}
+
+
+			.input-contact {
+				width: 250px;
+				padding: 10px;
+				margin-bottom: 15px;
+			}
+
+			#corps-message {
+				width: 350px;
+				height: 45vh;
+			}
+
+			#objet, #civilite {
+				margin-bottom: 20px;
+				margin-left: 20px;
+			}
+
+			.confidentialite {
+				display: flex;
+				flex-flow: row;
+				margin: 10px 0;
+			}
+
+			.confidentialite p {
+				padding-left: 5px;
+			}
+
+			.button-contact button {
+				margin: 0;
+				border-radius:0%;
+				padding: 10px;
+				width: 160px;
+				background-color: #19dcd5;
+				color: white;
+			}
+
+			.contact-inline {
+				display: flex;
+				flex-flow: row;
+				margin-top: 20px;
+			}
+
+
+
+/*CHIFFRE PANIER*/
+			#cercleChiffrePanier {
+				border-radius: 50%;
+				background-color: white;
+				color:#008c9e;
+				padding: 2px 7px;
+				font-size: 11px;
+				margin-left: -8px !important;
+			}
+/*CHIFFRE PANIER*/
+.glyphicon{
+	font-size: 20px;
+	position: fixed;
+	top: 60px;
+	left: 20px;
+	color: rgba(0, 140, 158, 0.6);
+	cursor: pointer;
+}
+
+.category {
+	background-color: #008c9e;
+	position: fixed;
+	width: 200px;
+	z-index: 1013;
+	height: 460px;
+	top: 100px;
+	left: 0px;
+	border-radius: 0px 5px 5px 0px;
+	box-shadow: 1px 3px 3px gray;
+	background-color: rgba(0, 140, 158, 0.6);
+}
+
+.category:hover {
+	background-color: rgba(0, 140, 158, 0.6);
+	/*transition: all 3s ease;*/
+}
+
+
+.category h4 {
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 1px solid #CECECE;
+	color: white;
+}
+
+.category ul {
+	padding-left: 0px;
+}
+
+.category ul li , .category ul li a{
+	text-decoration: none;
+	list-style: none;
+	color: white;
+	line-height: 1.1em;
+	font-size: 14px;
+	margin: 7px;
+}
+
+.category ul li:hover {
+	background-color: rgba(237, 237, 237, 0.5);
+	padding: 5px;
+}

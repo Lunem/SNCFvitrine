@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="myApp">
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<title>Vitrine des innovations</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+</head>
+
+<body ng-controller="myCtrl">
+	<a id="haut"></a>
+
+
+		<!-- NAV -->
+
+		<nav id="menu">
+			<ul>
+				<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+				<li><i class="fa fa-search" aria-hidden="true"></i>
+				<input id='search' type="text" placeholder="Recherche..."></li>
+				<li><a href="start_up.html">Start'up</a></li>
+				<li><a href="produits.html">Produits</a></li>
+				<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+					<ul>
+						<li><a href="connexionPro.html">Professionnel</a></li>
+						<li><a href="connexion.html">Particulier</a></li>
+					</ul>
+				</li>
+				<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+				<li id="cercleChiffrePanier">{{count}}</li>
+			</ul>
+		</nav>
+		<!-- NAV -->
+
+
+
+		<!-- //////////////////////// CODE C DEBUT //////////////////////// -->
+
+		<!-- HEADER -->
+
+		<div class="header-homepage">
+					<img src="image/vitrine-homepage.png" alt="">
+		</div>
+
+		<!-- HEADER -->
+
+		<div id="logoMenuCategory" ng-click="active = !active">
+			<span id='burger' class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="font-size: 30px;"></span>
+		</div>
+		<!-- ___MENU FIXE ___-->
+		<div id="containerCategory">
+			<div class="category" ng-show="active">
+				<h4>TOUS NOS RAYONS</h4>
+				<ul>
+					<li><a href="#">Papeterie</a></li>
+					<li><a href="#">Musique</a></li>
+					<li><a href="#">Jeux vidéo</a></li>
+					<li><a href="#">Enfants</a></li>
+					<li><a href="#">Sport, Loisirs</a></li>
+					<li><a href="#">Santé</a></li>
+					<li><a href="#">Informatique</a></li>
+					<li><a href="#">Tablettes</a></li>
+					<li><a href="#">Smartphones</a></li>
+					<li><a href="#">Objets connectés</a></li>
+					<li><a href="#">Photo, Caméras</a></li>
+					<li><a href="#">TV, Vidéo</a></li>
+					<li><a href="#">Maison</a></li>
+					<li><a href="#">Electroménager</a></li>
+					<li><a href="#">Bricolage</a></li>
+					<li><a href="#">Jardinage</a></li>
+					<li><a href="#">Beauté, Forme</a></li>
+					<li><a href="#">Cuisine</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- ___FIN MENU FIXE ___-->
+
+		<!-- MAIN CONTAINER -->
+
+		<div id="containerProduits">
+			<div id="txAccueil">
+				<h2>Bienvenue dans le futur de la Technologie <br>
+				Trouvez ou Contribuez à financer les produits de demain !</h2>
+			</div>
+			<div class="container-titre-selection">
+				<h3 class="titre-selection text-center">Notre sélection du mois</h3>
+			</div>
+
+			<!-- Produits à acheter -->
+			<div class="titres-section-fav color-section-acheter">
+				<div class="icone icone-acheter"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true"></i></div>
+				<h4 class="text-center tx-white">Acheter</h4>
+			</div>
+
+			<div class="container-cards-produits-haut" >
+				<div class="card-fav width-card-fav" ng-repeat="service in services | filter: myFilter1">
+					<div class="dark-overlay-acheter width-card-fav position-elem"></div>
+					<div class="pic-produit-fav width-card-fav" ng-style="{'background' : 'url(' + service.imageFavori1 +') no-repeat center/cover'}"></div>
+					<div class="btn-card-fav-produit width-card-fav position-elem ">
+						<a href="produits.html"><input type="button" value="{{ service.nomProduit }}" class="btn-acheter-fav tx-white width-btn-fav" ></a>
+						<a href="start_up.html"><p class="nom-startup text-center tx-white">par {{ service.title }}</p></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Produits à améliorer -->
+			<div class="titres-section-fav color-section-ameliorer">
+				<div class="icone icone-ameliorer"></div>
+				<h4 class="text-center tx-white">Participer à l'amélioration du produit</h4>
+			</div>
+
+			<div class="container-cards-produits-milieu">
+				<div class="card-fav width-card-fav" ng-repeat="service in services | filter: myFilter2">
+					<div class="dark-overlay-ameliorer width-card-fav position-elem"></div>
+					<div class="pic-produit-fav width-card-fav" ng-style="{'background' : 'url(' + service.imageFavori2 +') no-repeat center/cover'}"></div>
+					<div class="btn-card-fav-produit width-card-fav position-elem ">
+						<a href="produits.html"><input type="button" value="{{ service.nomProduit }}" class="btn-acheter-fav tx-white width-btn-fav" ></a>
+						<a href="start_up.html"><p class="nom-startup text-center tx-white">par {{ service.title }}</p></a>
+						<h5 class="produitAFinancer">Venez participer au financement !</h5>
+					</div>
+				</div>
+			</div>
+
+			<!-- Produits à financer -->
+			<div class="titres-section-fav color-section-financer">
+				<div class="icone icone-financer"></div>
+				<h4 class="text-center tx-white">Financement participatif</h4>
+			</div>
+
+			<div class="container-cards-produits-bas">
+				<div class="card-fav width-card-fav" ng-repeat="service in services | filter: myFilter2">
+					<div class="dark-overlay-financer width-card-fav position-elem"></div>
+					<div class="pic-produit-fav width-card-fav" ng-style="{'background' : 'url(' + service.imageFavori2 +') no-repeat center/cover'}"></div>
+					<div class="btn-card-fav-produit width-card-fav position-elem ">
+						<a href="produits.html"><input type="button" value="{{ service.nomProduit }}" class="btn-acheter-fav tx-white width-btn-fav" ></a>
+						<a href="start_up.html"><p class="nom-startup text-center tx-white">par {{ service.title }}</p></a>
+						<h5 class="produitAFinancer">Venez participer au financement !</h5>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- //////////////////////// CODE C FIN //////////////////////// -->
+		<!-- MAIN CONTAINER -->
+
+
+
+		<!-- FOOTER -->
+
+		<footer>
+			<ul>
+				<li><a href="">Société</a></li>
+				<li><a href="contact.html">Nous contacter</a></li>
+				<li><a href="nos_magasins.html">Nos magasins</a></li>
+				<li><a href="">Conditions générales et confidentialité</a></li>
+			</ul>
+			<ul>
+				<li><a href="">Découvrir</a></li>
+				<li><a href="">Confiance et sécurité</a></li>
+				<li><a href="">Application mobile</a></li>
+				<li><a href="">Plan du site</a></li>
+			</ul>
+			<div id="reseauxSociaux">
+				<p>Rejoignez-nous sur</p>
+				<ul>
+					<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+					<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</footer>
+		<!-- FOOTER -->
+
+
+		<!-- ANCRE -->
+
+		<a id="boutonAncre" href="#haut">
+			<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
+			</span>
+		</a>
+		<!-- ANCRE -->
+	<script src="js/app-cecile.js"></script>
+	<script src="js/controlScop-cecile.js"></script>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="myAppConnexion">
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<title>Contact</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+</head>
+<body>
+	<nav id="menu">
+		<ul>
+			<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+			<li><i class="fa fa-search" aria-hidden="true"></i>
+			<input id='search' type="text" placeholder="Recherche..."></li>
+			<li><a href="start_up.html">Start'up</a></li>
+			<li><a href="produits.html">Produits</a></li>
+			<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+				<ul>
+					<li><a href="connexionPro.html">Professionnel</a></li>
+					<li><a href="connexion.html">Particulier</a></li>
+				</ul>
+			</li>
+			<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+			<li id="cercleChiffrePanier">2</li>
+		</ul>
+		</ul>
+	</nav>
+	<div ng-controller="myCtrlContact">
+		<div id="containerContact" ng-show="acces">
+			<div id="utilisateur" style="border-right: 1px solid #d8d8d8;">
+				<h3>Contactez-nous</h3>
+				<p>Nous vous répondrons dans les meilleurs délais.</p>
+        <div class="contact-inline">
+        <p>Objet : </p>
+        <select name="" id="objet">
+          <option value="">Délai de livraison</option>
+          <option value="">Renseignement sur un article</option>
+          <option value="">Contact service client</option>
+          <option value="">Autre</option>
+        </select>
+        </div>
+        <textarea name="" id="corps-message" cols="30" rows="10" placeholder="votre message ici"></textarea>
+			</div>
+			<div id="newUtilisateur">
+        <div class="contact-inline">
+        <p>Civilité : </p>
+        <select name="" id="civilite">
+          <option value="">Madame</option>
+          <option value="">Monsieur</option>
+          <option value="">Mademoiselle</option>
+          <option value="">Homme-crabe</option>
+        </select>
+        </div>
+        <p>Nom*</p>
+        <input class="input-contact" placeholder="votre nom" type="text" required>
+        <p>Prénom*</p>
+        <input class="input-contact" placeholder="votre prénom" type="email"  required>
+        <p>E-mail*</p>
+        <input class="input-contact" type="text" placeholder="votre adresse e-mail" ng-model="user.email" required>
+        <div class="confidentialite">
+        <input type="checkbox"><p>J'ai lu et j'accepte la politique de confidentialité</p>
+        </div>
+        <div class="button-contact" ng-click=""><button>Envoyer</button></div>
+			</div>
+		</div>
+		<!-- ________________ -->
+
+
+	<!-- ________________FOOTER____________________ -->
+	<footer>
+		<ul>
+			<li><a href="">Société</a></li>
+			<li><a href="contact.html">Nous contacter</a></li>
+			<li><a href="nos_magasins.html">Nos magasins</a></li>
+			<li><a href="">Conditions générales et confidentialité</a></li>
+		</ul>
+		<ul>
+			<li><a href="">Découvrir</a></li>
+			<li><a href="">Confiance et sécurité</a></li>
+			<li><a href="">Application mobile</a></li>
+			<li><a href="">Plan du site</a></li>
+		</ul>
+		<div id="reseauxSociaux">
+			<p>Rejoignez-nous sur</p>
+			<ul>
+				<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+<script src="js/appConnexion.js"></script>
+<script src="js/controlScopConnexion.js"></script>
+<script src="js/controlScopConnexion.js"></script>
+</body>
+</html>

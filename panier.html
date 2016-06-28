@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="shortcut icon" type="image/x-icon" href="image/vitrine-black.png" />
+	<title>Votre panier</title>
+</head>
+
+<body ng-app="myApp"  ng-controller="myCtrl">
+	<a id="haut"></a>
+
+
+	<!-- NAV -->
+
+	<nav id="menu">
+		<ul>
+			<li><a href="index.html"><img src="image/vitrine-1.png" alt=""></a></li>
+			<li><i class="fa fa-search" aria-hidden="true"></i>
+			<input id='search' type="text" placeholder="Recherche..."></li>
+			<li><a href="start_up.html">Start'up</a></li>
+			<li><a href="produits.html">Produits</a></li>
+			<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+				<ul>
+					<li><a href="connexionPro.html">Professionnel</a></li>
+					<li><a href="connexion.html">Particulier</a></li>
+				</ul>
+			</li>
+			<li><a href="panier.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Panier</a></li>
+			<li id="cercleChiffrePanier">2</li>
+		</ul>
+		</nav>
+
+	<!-- NAV -->
+<!--
+	<div id="banniere_haute">
+		<img src="image/buy.jpg" alt="">
+		<div id= "ligne_blanche_titre">
+			<h3>Mes produits</h3>
+		</div>
+	</div> -->
+
+	<div class="header-homepage">
+			<h3>Mes produits</h3>
+	</div>
+
+	<div id="container_panier">
+		<div id="boutons_validation">
+
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x cercle_valide1" ng-class="{'cercle_valide1':isActive1, 'big_1':!isActive1}"></i>
+				<i class="fa-stack-1x fa-inverse chiffre_valide1" ng-class="{'chiffre_valide1':isActive1, 'big_chiffre_1':!isActive1}" style="color: #CECECE;padding-left:10px;">1</i>
+			</span>
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x cercle_valide2" ng-class="{'cercle_valide2':isActive2, 'big_2':!isActive2}"></i>
+				<i class="fa-stack-1x fa-inverse chiffre_valide2" ng-class="{'chiffre_valide2':isActive2, 'big_chiffre_2':!isActive2}" style="color: #CECECE;padding-left:10px;">2</i>
+			</span>
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x cercle_valide3" ng-class="{'cercle_valide3':isActive3, 'big_3':!isActive3}"></i>
+				<i class="fa-stack-1x fa-inverse chiffre_valide3" ng-style="{'chiffre_valide3':isActive3, 'big_3':!isActive3}" style="color: #CECECE;padding-left:10px;">3</i>
+			</span>
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x cercle_valide4" ng-class="{'cercle_valide4':isActive4, 'big_4':!isActive4}"></i>
+				<i class="fa-stack-1x fa-inverse chiffre_valide4" ng-style="{'chiffre_valide4':isActive4, 'big_4':!isActive3}" style="color: #CECECE;padding-left:10px;">4</i>
+			</span>
+			<!-- <div id="hr">
+				<hr class="style1">
+			</div> -->
+		</div>
+
+		<div id="panier_valid_livr_paie">
+			<p class="panier_valide1" ng-class="{'panier_valide1':isActive1, 'panier_non_valide1':!isActive1}" >Panier</p>
+			<p class="panier_valide2" ng-class="{'panier_valide2':isActive2, 'panier_non_valide2':!isActive2}">Coordonnées</p>
+			<p style="margin-left:10px" class="panier_valide3" ng-class="{'panier_valide3':isActive3, 'panier_non_valide3':!isActive3}">Livraison</p>
+			<p class="panier_valide4" ng-class="{'panier_valide4':isActive4, 'panier_non_valide4':!isActive4}">Paiement</p>
+		</div>
+
+
+	<!-- tableau -->
+		<div id="tableau_vente" ng-show="panier_validation">
+			<table style="width:800px">
+			  <tr class="ligne_titre_commande">
+			    <th>Vendeur</th>
+			    <th>Article</th>
+			    <th>Disponibilité</th>
+			    <th>Quantité</th>
+			    <th>Prix total</th>
+			  </tr>
+			  <tr class="ligne_produit">
+			    <td><img src="image/mimo.png" alt="Mimo"></td>
+			    <td><img src="image/sevenhugs.jpg" alt="Mimo"></td>
+			    <td>En stock</td>
+			    <td>1</td>
+			    <td>139.99€</td>
+			  </tr>
+				<tr class="ligne_produit">
+			    <td><img src="image/bragi.png" alt=""></td>
+			    <td><img src="image/feeltact.jpg" alt="Mimo"></td>
+			    <td>Disponible le 12 Juin 2016</td>
+			    <td>1</td>
+			    <td>999.99€</td>
+			  </tr>
+				<tr class="ligne_produit">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="border:none" class="prix_final">Total (TTC) :</td>
+					<td style="border:none" class="prix_final">1139,98€</td>
+				</tr>
+			</table>
+
+				<input type="button" value="Valider" id="button_submit" ng-click="submit()">
+			</div>
+
+		</div>
+
+<!-- tableau -->
+
+<!-- page de connexion -->
+
+	<div id="containerGlobalConnexion"  ng-show="acces">
+		<div id="containerAcces">
+			<div class="infoPerso">
+				<div id="checkbox">
+					<h4>VOS INFORMATIONS PERSONNELLES</h4>
+					<p>Civilité*:</p>
+					<input type="checkbox">Mlle
+					<input type="checkbox">Mme
+					<input type="checkbox">M.
+				</div>
+				<div class="infos">
+				<div>
+					<p>Prénom*:</p>
+					<input class="sizeInput" type="text" placeholder="votre prénom">
+					<p>Adresse e-mail*:</p>
+					<input class="sizeInput" type="text" placeholder="votre adresse e-mail">
+					<p>Date de naissance*:</p>
+					<input class="sizeInput" type="text" placeholder="votre adresse date de naissance">
+				</div>
+				<div>
+					<p>Nom*:</p>
+					<input class="sizeInput" type="text" placeholder="votre nom">
+					<p>Pseudo*:</p>
+					<input class="sizeInput" type="text" placeholder="votre pseudo">
+					<p>Mot de passe*:</p>
+					<input class="sizeInput" type="text" placeholder="***********">
+				</div>
+					<input type="button" id="button_submit" ng-click="connecter()" value="Me connecter">
+				</div>
+			</div>
+		</div>
+		<div id="containerConexion">
+			<div id="utilisateur">
+				<h3>ON SE CONNAÎT DÉJÀ ?</h3>
+				<p id="padding_reduc" style="padding-top:20px;">Connectez-vous pour retrouver vos avantages et les informations de votre compte.</p>
+				<p style="padding-top:30px;margin-bottom:5px;">E-mail*</p>
+				<input class="sizeInput" type="text" placeholder="votre adresse e-mail" ng-model="mail" required>
+				<p style="margin-top:25px;margin-bottom:5px;">Mot de passe*</p>
+				<input class="sizeInput" type="text" placeholder="votre mot de passe" ng-model="password" required><br>
+				<input style="margin-top:70px;" type="button" id="button_submit" ng-click="connecter()" value="Me connecter">
+			</div>
+		</div>
+	</div>
+	<!-- page de connexion -->
+
+	<!-- page de livraison -->
+	<div id="containerLiraison" ng-show="livraison">
+		<div id="livraisonEnDetail">
+					<h3>Mes options de livraison</h3>
+					<h5>Destinataire de la commande :</h5>
+					<p>Mr et Mme Tartenpioche <br>
+		 			 La pouillasse ! <br>
+					 75015 Paris <br>
+		 			Tel: +33 6 00 00 00 00</p>
+					<p><em>Modifier</em></p>
+
+			<input id="button_submit2" style="margin-top:10px;" type="button" value="Ajouter une adresse">
+		<!-- <hr style="height: 1px; color: #008C9E; width: 600px; border: 1px solid #008C9E;"> -->
+		</div>
+		<div id="adresseFacturationOk">
+			<h4>Adresse de facturation</h4>
+			<label for="IdCheckBox">Si l'adresse de facturation est différente de celle du destinataire, cocher la case :</label>
+			<input type="checkbox" id="IdCheckBox" value="valeur" /><br>
+			<input id="button_submit" type="button" value="Valider" ng-click="submitFinal()">
+
+		</div>
+	</div>
+
+		<!-- page de livraison -->
+
+<!-- tableau final -->
+	<div id="tableau_vente_final" ng-show="tableau_vente_finale">
+		<div id="adresseLivrFact">
+			<div id="adresseLivraison">
+				<p style="margin-bottom:10px"><strong>Adresse du destinataire :</strong></p>
+				<p>Mr et Mme Tartenpioche <br>
+				 La pouillasse ! <br>
+				 75015 Paris <br>
+				Tel: +33 6 00 00 00 00</p>
+					<p><em>Modifier</em></p>
+			</div>
+			<div id="adresseFacturation">
+				<p style="margin-bottom:10px"><strong>Adresse de facturation :</strong></p>
+				<p>Mr et Mme Tartenpioche <br>
+				 La pouillasse ! <br>
+				 75015 Paris <br>
+				Tel: +33 6 00 00 00 00</p>
+					<p><em>Modifier</em></p>
+			</div>
+		</div>
+
+
+		<table style="width:800px">
+		  <tr class="ligne_titre_commande">
+		    <th>Vendeur</th>
+		    <th>Article</th>
+		    <th>Disponibilité</th>
+		    <th>Quantité</th>
+		    <th>Prix total</th>
+		  </tr>
+		  <tr class="ligne_produit">
+		    <td>{{service.title}}</td>
+		    <td>Mimo</td>
+		    <td>En stock</td>
+		    <td>1</td>
+		    <td>139.99€</td>
+		  </tr>
+			<tr class="ligne_produit">
+		    <td>{{service.title}}</td>
+		    <td>Feeltact</td>
+		    <td>Disponible le 12 Juin 2016</td>
+		    <td>1</td>
+		    <td>999.99€</td>
+		  </tr>
+			<tr class="ligne_produit">
+				<td style="border:none"></td>
+				<td style="border:none"></td>
+				<td style="border:none"></td>
+				<td style="border:none"><em style="font-size:12px">Frais de livraison :</em></td>
+				<td style="border:none"><em style="font-size:12px">13.99€</em></td>
+			</tr>
+			<tr class="ligne_produit">
+				<td style="border:none"></td>
+				<td style="border:none"></td>
+				<td style="border:none"></td>
+				<td style="border:none" class="prix_final">Total (TTC) :</td>
+				<td style="border:none" class="prix_final">1153,97€ <br><em>Dont 7,00 € d'éco-participation DEEE</em></td>
+			</tr>
+		</table>
+
+		<input type="button" value="Valider" id="button_submit" ng-click="finalFinalSubmit()">
+	</div>
+
+<!-- tableau FINAL-->
+
+
+<!-- BRAVO LA COMANDE EST FINIE!!! -->
+	<div id="diapoFinalAchat" ng-show="diapoFinalAchat">
+		<h2><em>Bravo à vous</em></h2>
+		<h2><em>Votre commande est validée !</em></h2>
+	</div>
+
+<!-- BRAVO LA COMANDE EST FINIE!!! -->
+
+	<!-- FOOTER -->
+	<footer>
+		<ul>
+			<li><a href="">Société</a></li>
+			<li><a href="contact.html">Nous contacter</a></li>
+			<li><a href="nos_magasins.html">Nos magasins</a></li>
+			<li><a href="">Conditions générales et confidentialité</a></li>
+		</ul>
+		<ul>
+			<li><a href="">Découvrir</a></li>
+			<li><a href="">Confiance et sécurité</a></li>
+			<li><a href="">Application mobile</a></li>
+			<li><a href="">Plan du site</a></li>
+		</ul>
+		<div id="reseauxSociaux">
+			<p>Rejoignez-nous sur</p>
+			<ul>
+				<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- FOOTER -->
+
+
+	<!-- ANCRE -->
+	<a id="ancre" href="#haut">
+		<span class="fa-stack fa-lg">
+		<i class="fa fa-circle fa-stack-2x"></i>
+		<i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
+	</span></a>
+	<!-- ANCRE -->
+
+	<script src="js/app-celia.js"></script>
+	<script src="js/controlScop-celia.js"></script>
+</body>
+</html>
